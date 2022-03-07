@@ -8,7 +8,7 @@ import FormControl from "@mui/material/FormControl";
 import CloseIcon from "@mui/icons-material/Close";
 import AddBoxIcon from "@mui/icons-material/AddBox";
 import SearchIcon from "@mui/icons-material/Search";
-const TheTableHeading = ({ search, setSearch, title, setModal }) => {
+const TheTableHeading = ({ search, setSearch, title, setModal, add }) => {
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
@@ -53,14 +53,16 @@ const TheTableHeading = ({ search, setSearch, title, setModal }) => {
             }
           />
         </FormControl>
-        <IconButton
-          aria-label="toggle password visibility"
-          onClick={() => {
-            setModal(true);
-          }}
-        >
-          <AddBoxIcon fontSize="large" />
-        </IconButton>
+        {!add ? (
+          <IconButton
+            aria-label="toggle password visibility"
+            onClick={() => {
+              setModal(true);
+            }}
+          >
+            <AddBoxIcon fontSize="large" />
+          </IconButton>
+        ) : null}
       </div>
     </div>
   );

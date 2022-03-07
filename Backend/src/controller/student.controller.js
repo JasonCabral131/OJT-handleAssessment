@@ -1,5 +1,5 @@
 const Student = require("./../model/Student");
-
+const Enroll = require("./../model/enroll");
 exports.create = async (req, res) => {
   try {
     const { firstname, lastname, middlename, sex, birthday, phone, email } =
@@ -96,7 +96,23 @@ exports.update = async (req, res) => {
 exports.getStudents = async (req, res) => {
   try {
     const students = await Student.find().lean();
-    return res.status(200).json(students);
+
+    let studentList = [];
+    for (let stud of students) {
+      const enroll = await Enroll.find({ student_num: stud._id })
+        .populate({
+          path: "course",
+          populate: {
+            path: "program",
+            populate: {
+              path: "college",
+            },
+          },
+        })
+        .lean();
+      studentList.push({ ...stud, enrolled: enroll });
+    }
+    return res.status(200).json(studentList);
   } catch (e) {
     return res.status(400).json({ msg: "Failed to Get Data" });
   }
@@ -106,7 +122,6 @@ exports.getStudent = async (req, res) => {
     const id = req.params.id;
 
     const student = await Student.findOne({ _id: id }).lean();
-
     return res.status(200).json(student);
   } catch (e) {
     return res.status(400).json({ msg: "Failed to Get Data" });

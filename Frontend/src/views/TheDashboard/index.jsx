@@ -12,6 +12,7 @@ const TheDashboard = () => {
   const { students } = useSelector((state) => state.student);
   const { programs } = useSelector((state) => state.program);
   const { colleges } = useSelector((state) => state.college);
+  const { admins } = useSelector((state) => state.auth);
   return (
     <div className="w-100">
       <div className="row ">
@@ -58,7 +59,7 @@ const TheDashboard = () => {
               Admin
             </Typography>
             <CountUp
-              end={Array.isArray(students) ? students.length : 0}
+              end={Array.isArray(admins) ? admins.length + 1 : 0}
               duration={1}
             />
           </Paper>
