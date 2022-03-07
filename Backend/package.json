@@ -1,0 +1,28 @@
+{
+  "name": "student-information-backend",
+  "version": "1.0.0",
+  "description": "OJT backend application",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "nodemon index.js"
+  },
+  "author": "Jason P. Cabral",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cloudinary": "^1.28.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
+    "mongoose": "^5.13.8",
+    "mongoose-sequence": "^5.3.1",
+    "multer": "^1.4.4",
+    "nodemailer": "^6.7.2",
+    "random-number": "^0.0.9",
+    "shortid": "^2.2.16",
+    "socket.io": "^4.4.1"
+  }
+}

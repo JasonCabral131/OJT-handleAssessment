@@ -1,0 +1,20 @@
+.card-heading {
+  display: flex;
+  width: 100%;
+  padding: 10px;
+  justify-content: space-between;
+  align-items: center;
+  .search-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & > * {
+      margin: 5px;
+    }
+  }
+}
+.align-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

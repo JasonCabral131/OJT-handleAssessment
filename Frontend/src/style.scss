@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@400;500&display=swap");
+
+:root {
+  --gradient-bar: linear-gradient(103.22deg, #ae67fa -13.86%, #f49867 99.55%);
+  --primary: rgb(34, 34, 34);
+  --semi-primary: rgb(65, 65, 65);
+  --secondary: rgb(243, 95, 95);
+  --tertiary: rgb(247, 211, 10);
+  ---quaternary: rgb(75, 75, 247);
+  --color-footer: #031b34;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  // font-family: "Noto Serif Display", serif;
+  scroll-behavior: smooth;
+}
+.gradient__text {
+  background: var(--gradient-bar);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.text-danger {
+  color: rgb(253, 48, 48);
+}
+.text-success {
+  color: #05d405;
+}
+.card-heading {
+  display: flex;
+  width: 100%;
+  padding: 10px;
+  justify-content: space-between;
+  align-items: center;
+  .search-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & > * {
+      margin: 5px;
+    }
+  }
+}
+.d-flex {
+  display: flex;
+  & > * {
+    margin: 4px;
+  }
+}
+.modal-margin-top {
+  margin-top: 100px !important;
+}
+.swal2-styled {
+  margin: 0 !important;
+}
+.swal2-styled:first-child {
+  margin: 0 2px 0 0 !important;
+}
+.swal2-icon-content {
+  font-size: 50px !important;
+}
+.loadinCircular {
+  & > * {
+    margin: 3px;
+  }
+}
+.text-capitalize {
+  text-transform: capitalize !important;
+}
+@media screen and (max-width: 550px) {
+  .card-heading {
+    flex-direction: column !important;
+    & > * {
+      width: 100%;
+      margin: 10px;
+    }
+  }
+}
