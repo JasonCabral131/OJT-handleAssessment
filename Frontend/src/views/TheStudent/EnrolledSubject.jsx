@@ -135,12 +135,8 @@ const EnrolledSubject = ({ row, setModalUpdate, setStudent, index }) => {
                 search={search}
                 setSearch={setSearch}
               />
-              <TableContainer
-                component={Paper}
-                style={{ padding: "10px" }}
-                sx={{ maxHeight: 440 }}
-              >
-                <Table stickyHeader aria-label="custom pagination table">
+              <TableContainer component={Paper} style={{ padding: "10px" }}>
+                <Table aria-label="custom pagination table">
                   <TableHead>
                     <TableRow>
                       <TableCell align={"center"} component="th">

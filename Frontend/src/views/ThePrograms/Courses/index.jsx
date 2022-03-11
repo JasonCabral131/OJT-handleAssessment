@@ -107,11 +107,7 @@ const Courses = ({ program }) => {
           />
           <Paper sx={{ padding: 1 }}>
             <TableContainer component={Paper}>
-              <Table
-                sx={{ minWidth: 500 }}
-                aria-label="custom pagination table sticky "
-                stickyHeader
-              >
+              <Table aria-label="custom pagination table sticky " stickyHeader>
                 <TableHead>
                   <TableRow>
                     <TableCell>No.</TableCell>

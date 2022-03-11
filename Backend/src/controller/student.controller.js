@@ -33,9 +33,11 @@ exports.create = async (req, res) => {
       email,
     }).save();
     if (saving) {
+      const enrolled = await Enroll.find({ student_num: saving._id }).lean();
+
       return res
         .status(200)
-        .json({ msg: "Successfully Save", student: saving });
+        .json({ msg: "Successfully Save", student: { ...saving, enrolled } });
     }
     return res.status(400).json({ msg: "Failed to Created Student" });
   } catch (e) {
@@ -86,7 +88,13 @@ exports.update = async (req, res) => {
     );
     if (updating) {
       const student = await Student.findOne({ _id }).lean();
-      return res.status(200).json({ msg: "Successfully Updated", student });
+      const enrolled = await Enroll.find({ student_num: _id }).lean();
+      return res
+        .status(200)
+        .json({
+          msg: "Successfully Updated",
+          student: { ...student, enrolled },
+        });
     }
     return res.status(400).json({ msg: "Failed to Created Student" });
   } catch (e) {
